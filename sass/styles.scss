@@ -1,0 +1,279 @@
+//varibale
+$linecolor: #e5115b;
+$headcolor: #030000;
+$textcolor: #747678;
+$sectioncolor: #f4f3f9;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+.entries {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  .entries__row1 {
+    min-height: 100vh;
+    width: 90%;
+    display: flex;
+    @media screen and (max-width: 990px) {
+      display: none;
+    }
+    align-items: center;
+    justify-content: space-between;
+
+    .entries__col1 {
+      display: flex;
+      justify-content: flex-start;
+      flex-flow: column wrap;
+      row-gap: 20px;
+      .entries__title {
+        font-size: 30px;
+        color: $headcolor;
+      }
+      .entries__names {
+        a,
+        a:hover,
+        a:focus,
+        a:active {
+          text-decoration: none;
+          color: inherit;
+        }
+
+        display: flex;
+        flex-flow: column wrap;
+        row-gap: 60px;
+        .label {
+          padding-left: 20px;
+          border-left: 5px solid $linecolor;
+          .entries__index {
+            color: $linecolor;
+          }
+          .entries__intro {
+            color: $headcolor !important;
+          }
+        }
+        .entries__name {
+          height: 60px;
+          width: 259%;
+          display: flex;
+          flex-flow: column wrap;
+          //   row-gap: 13px;
+          .entries__intro {
+            color: $textcolor;
+          }
+        }
+      }
+    }
+    .entries__col2 {
+      display: flex;
+      flex-flow: row wrap;
+      margin-top: 20px;
+      height: 70vh;
+      align-items: center;
+      overflow-y: scroll;
+      .entries__data {
+        background-color: $sectioncolor;
+        display: flex;
+        flex-flow: column wrap;
+        row-gap: 20px;
+        .entries__details {
+          margin-left: 50px;
+          margin-right: 50px;
+          display: flex;
+          // align-items: center;
+          justify-content: center;
+          flex-flow: column wrap;
+          row-gap: 15px;
+          .entries__heading {
+            font-size: 35px;
+          }
+          .entries__read-more {
+            display: flex;
+            column-gap: 10px;
+            align-items: center;
+            margin-bottom: 10px;
+            .entries__text {
+              color: $headcolor;
+            }
+            button {
+              height: 40px;
+              width: 40px;
+              background-color: $linecolor;
+              border-radius: 50%;
+              border: 1px solid $linecolor;
+            }
+            .fa-solid {
+              color: $sectioncolor;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .entries__row2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 300px;
+    .swiper {
+    }
+  }
+}
+
+// for mobile view
+.swiper-mobile {
+  padding: 20px;
+  //responsiveness
+  @media screen and (min-width: 990px) {
+    display: none;
+  }
+  .swiper-slide {
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .entries__row1 {
+      .entries__col1 {
+        display: flex;
+        justify-content: space-between;
+        .buttons {
+          margin-right: 35px;
+          display: flex;
+          height: 40px;
+          column-gap: 10px;
+          font-size: 20px;
+          cursor: pointer;
+          .prev-button:hover {
+            color: $textcolor;
+          }
+          .next-button:hover {
+            color: $textcolor;
+          }
+        }
+        a,
+        a:hover,
+        a:focus,
+        a:active {
+          text-decoration: none;
+          color: inherit;
+        }
+        .entries__name {
+          height: 80px;
+          margin-bottom: 20px;
+          width: 100%;
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+          flex-flow: column wrap;
+          row-gap: 13px;
+          .entries__intro {
+            color: $textcolor;
+          }
+        }
+        .label {
+          padding-left: 20px;
+          border-left: 5px solid $linecolor;
+          .entries__index {
+            color: $linecolor;
+          }
+          .entries__intro {
+            color: $headcolor !important;
+          }
+        }
+        .swiper-button-next {
+          position: absolute;
+          top: 50%;
+        }
+      }
+      .entries__col2 {
+        background-color: $sectioncolor;
+        width: -100%;
+        display: flex;
+        flex-flow: column wrap;
+        row-gap: 20px;
+        .entries__image {
+          text-align: center;
+        }
+        .entries__details {
+          margin-left: 50px;
+          margin-right: 50px;
+          display: flex;
+          // align-items: center;
+          justify-content: center;
+          flex-flow: column wrap;
+          row-gap: 15px;
+          .entries__heading {
+            font-size: 35px;
+          }
+          .entries__read-more {
+            display: flex;
+            column-gap: 10px;
+            align-items: center;
+            margin-bottom: 10px;
+            .entries__text {
+              color: $headcolor;
+            }
+            .button {
+              height: 40px;
+              width: 40px;
+              background-color: $linecolor;
+              border-radius: 50%;
+              border: 1px solid $linecolor;
+             text-align: center;
+             
+             
+            }
+            .fa-solid {
+              color: $sectioncolor;
+              margin-left: -200%;
+            }
+            .button:hover{
+              .fa-solid{
+                margin-left: 20px;
+              animation: MoveUpDown 1s linear infinite;
+              transition: all 0.4s smooth;
+              }
+
+            }
+            @keyframes MoveUpDown {
+              0%, 100% {
+                bottom: 0;
+              }
+              50% {
+                bottom: 30px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .swiper-button-next {
+    visibility: hidden;
+  }
+  .swiper-button-prev {
+    visibility: hidden;
+  }
+}
+@keyframes MoveUpDown {
+  0%, 100% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 100px;
+  }
+}
